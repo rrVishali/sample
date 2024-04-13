@@ -1,0 +1,25 @@
+import redis.clients.jedis.Jedis;
+
+public class RedisConnectionExample {
+    public static void main(String[] args) {
+        // Replace these values with the actual credentials provided by your friend
+        String host = "redis-15370.c283.us-east-1-4.ec2.cloud.redislabs.com";
+        int port = 15370;
+        String password = "ESbiRUrdtRMRRFd8uaYk2J2JFkpngb0k";
+
+        // Connect to Redis
+        Jedis jedis = new Jedis(host, port);
+        
+        // Authenticate if password is required
+        if (password != null && !password.isEmpty()) {
+            jedis.auth(password);
+        }
+
+        // Test the connection
+        String pingResult = jedis.ping();
+        System.out.println("Ping result: " + pingResult);
+
+        // Close the connection when done
+        jedis.close();
+    }
+}
