@@ -8,6 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.portfolio.ViewTransaction")
 public class ViewTransactionApplication {
 
+	public ViewTransactionApplication() {
+		super();
+		//TODO Auto-generated constructor stub
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(ViewTransactionApplication.class, args);
 	}

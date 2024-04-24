@@ -2,31 +2,34 @@ package com.portfolio.ViewTransaction.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import java.io.Serializable;
+import java.util.Date;
 
 @RedisHash("Transaction")
-public class Transaction {
-   
+public class Transaction implements Serializable{
+    private static final long serialVersionUID = 1L;
     @Id
     private String transactionID;
     private String userId;
     private String stockId;
-    private String dateOfPurchase;
-    private String dateOfSell;
-    private int units;
-    private double amountPaid;
-    private double amountReceived;
+     private Date dateOfPurchase;
+    private Date dateOfSell;
+    private String units;
+    private String amountPaid;
+    private String amountReceived;
     private String transactionType;
+    private String profitOrLoss;
 
 
     public Transaction() {
         // Default constructor required by Spring Data Redis
     }
 
-    public Transaction(String transactionID, String userId, String stockId, int units, double amountPaid,double amountReceived, String dateOfPurchase, String dateOfSell, String transactionType) {
+    public Transaction(String transactionID, String userId, String stockId, String units, Date dateOfPurchase, Date dateOfSell, String amountPaid,String amountReceived, String transactionType, String profitOrLoss) {
         this.transactionID = transactionID;
         this.userId = userId;
         this.stockId = stockId;
-        this.dateOfPurchase = dateOfPurchase;
+       this.dateOfPurchase = dateOfPurchase;
         this.dateOfSell = dateOfSell;
         this.units = units;
         this.amountPaid = amountPaid;
@@ -57,40 +60,27 @@ public class Transaction {
     public void setStockId(String stockId) {
         this.stockId = stockId;
     }
-    public String getdateOfPurchase() {
-        return dateOfPurchase;
-    }
-
-    public void setdateOfPurchase(String dateOfPurchase) {
-        this.dateOfPurchase = dateOfPurchase;
-    }
-    public String getdateOfSell() {
-        return dateOfSell;
-    }
-
-    public void setdateOfSell(String dateOfSell) {
-        this.dateOfSell = dateOfSell;
-    }
-    public int getUnits() {
+    
+    public String getUnits() {
         return units;
     }
 
-    public void setUnits(int units) {
+    public void setUnits(String units) {
         this.units = units;
     }
 
-    public double getamountPaid() {
+    public String getamountPaid() {
         return amountPaid;
     }
 
-    public void setamountPaid(double amountPaid) {
+    public void setamountPaid(String amountPaid) {
         this.amountPaid = amountPaid;
     }
-    public double getamountReceived() {
+    public String getamountReceived() {
         return amountReceived;
     }
 
-    public void setamountReceived(double amountReceived) {
+    public void setamountReceived(String amountReceived) {
         this.amountReceived = amountReceived;
     }
     public String getTransactionType() {
@@ -99,6 +89,13 @@ public class Transaction {
 
     public void setTransactionType(String transactionType) {
         this.transactionType = transactionType;
+    }
+    public String getProfitOrLoss() {
+        return profitOrLoss;
+    }
+
+    public void setProfitOrLoss(String profitOrLoss) {
+        this.profitOrLoss = profitOrLoss;
     }
     @Override
     public String toString() {
@@ -113,5 +110,10 @@ public class Transaction {
                 ", Transaction type =" + transactionType +
                 ", stock ID =" + stockId +
                 '}';
+    }
+
+    public void setProfitOrLoss(double profitOrLoss2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setProfitOrLoss'");
     }
 }
