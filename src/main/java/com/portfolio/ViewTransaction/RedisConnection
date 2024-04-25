@@ -1,25 +1,69 @@
-import redis.clients.jedis.Jedis;
+// import redis.clients.jedis.Jedis;
 
-public class RedisConnectionExample {
-    public static void main(String[] args) {
-        // Replace these values with the actual credentials provided by your friend
-        String host = "redis-15370.c283.us-east-1-4.ec2.cloud.redislabs.com";
-        int port = 15370;
-        String password = "ESbiRUrdtRMRRFd8uaYk2J2JFkpngb0k";
+// public class RedisConnectionExample {
+//     public static void main(String[] args) {
+//         // Replace these values with the actual credentials provided by your friend
+//         String host = "redis-15370.c283.us-east-1-4.ec2.cloud.redislabs.com";
+//         int port = 15370;
+//         String password = "ESbiRUrdtRMRRFd8uaYk2J2JFkpngb0k";
 
-        // Connect to Redis
-        Jedis jedis = new Jedis(host, port);
+//         // Connect to Redis
+//         Jedis jedis = new Jedis(host, port);
         
-        // Authenticate if password is required
-        if (password != null && !password.isEmpty()) {
-            jedis.auth(password);
-        }
+//         // Authenticate if password is required
+//         if (password != null && !password.isEmpty()) {
+//             jedis.auth(password);
+//         }
 
-        // Test the connection
-        String pingResult = jedis.ping();
-        System.out.println("Ping result: " + pingResult);
+//         // Test the connection
+//         String pingResult = jedis.ping();
+//         System.out.println("Ping result: " + pingResult);
+//         Transaction transaction = new Transaction();
+//         transaction.setTransactionID("123456");
+//         transaction.setUserId("user123");
+//         transaction.setStockId("stock789");
+//         transaction.setDateOfPurchase(new Date());
+//         transaction.setDateOfSell(new Date());
+//         transaction.setUnits("10");
+//         transaction.setAmountPaid("100");
+//         transaction.setAmountReceived("150");
+//         transaction.setTransactionType("buy");
+//         transaction.setProfitOrLoss("50");
 
-        // Close the connection when done
-        jedis.close();
-    }
-}
+//         // Serialize transaction object to JSON
+//         String json = null;
+//         try {
+//             json = objectMapper.writeValueAsString(transaction);
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
+
+//         // Insert JSON data into Redis
+//         if (json != null) {
+//             jedis.set("transaction:" + transaction.getTransactionID(), json);
+//         }
+
+        
+    
+//         // Close the connection when done
+//         jedis.close();
+//     }
+// }
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.data.redis.core.RedisTemplate;
+// import org.springframework.stereotype.Component;
+
+// @Component
+// public class RedisConnection {
+
+//     @Autowired
+//     private RedisTemplate<String, Object> redisTemplate;
+
+//     public void save(String key, Object data) {
+//         redisTemplate.opsForValue().set(key, data);
+//     }
+
+//     public Object get(String key) {
+//         return redisTemplate.opsForValue().get(key);
+//     }
+// }

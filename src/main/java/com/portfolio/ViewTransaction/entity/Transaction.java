@@ -1,66 +1,62 @@
 package com.portfolio.ViewTransaction.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
-import java.io.Serializable;
 import java.util.Date;
 
-@RedisHash("Transaction")
-public class Transaction implements Serializable{
-    private static final long serialVersionUID = 1L;
-    @Id
-    private String transactionID;
-    private String userId;
-    private String stockId;
-     private Date dateOfPurchase;
-    private Date dateOfSell;
+@jakarta.persistence.Entity
+public class Transaction {
+    @jakarta.persistence.Id
+    private String transaction_id;
+    private String user_id;
+    private String stock_id;
+    private Date date_of_purchase;
+    private Date date_of_sell;
     private String units;
-    private String amountPaid;
-    private String amountReceived;
-    private String transactionType;
-    private String profitOrLoss;
+    private String amount_paid;
+    private String amount_received;
+    private String transaction_type;
+    private String profit_or_loss;
 
-
-    public Transaction() {
-        // Default constructor required by Spring Data Redis
+    // Getters and setters
+    public String getTransactionID() {
+        return transaction_id;
     }
 
-    public Transaction(String transactionID, String userId, String stockId, String units, Date dateOfPurchase, Date dateOfSell, String amountPaid,String amountReceived, String transactionType, String profitOrLoss) {
-        this.transactionID = transactionID;
-        this.userId = userId;
-        this.stockId = stockId;
-       this.dateOfPurchase = dateOfPurchase;
-        this.dateOfSell = dateOfSell;
-        this.units = units;
-        this.amountPaid = amountPaid;
-        this.amountReceived = amountReceived;
-        this.transactionType= transactionType;
-    }
-
-    public String getTransactionId() {
-        return transactionID;
-    }
-
-    public void setTransactionId(String transactionID) {
-        this.transactionID = transactionID;
+    public void setTransactionID(String transactionID) {
+        this.transaction_id = transactionID;
     }
 
     public String getUserId() {
-        return userId;
+        return user_id;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.user_id = userId;
     }
 
     public String getStockId() {
-        return stockId;
+        return stock_id;
     }
 
     public void setStockId(String stockId) {
-        this.stockId = stockId;
+        this.stock_id = stockId;
     }
-    
+
+    public Date getDateOfPurchase() {
+        return date_of_purchase;
+    }
+
+    public void setDateOfPurchase(Date dateOfPurchase) {
+        this.date_of_purchase = dateOfPurchase;
+    }
+
+    public Date getDateOfSell() {
+        return date_of_sell;
+    }
+
+    public void setDateOfSell(Date dateOfSell) {
+        this.date_of_sell = dateOfSell;
+    }
+
     public String getUnits() {
         return units;
     }
@@ -69,51 +65,35 @@ public class Transaction implements Serializable{
         this.units = units;
     }
 
-    public String getamountPaid() {
-        return amountPaid;
+    public String getAmountPaid() {
+        return amount_paid;
     }
 
-    public void setamountPaid(String amountPaid) {
-        this.amountPaid = amountPaid;
-    }
-    public String getamountReceived() {
-        return amountReceived;
+    public void setAmountPaid(String amountPaid) {
+        this.amount_paid = amountPaid;
     }
 
-    public void setamountReceived(String amountReceived) {
-        this.amountReceived = amountReceived;
+    public String getAmountReceived() {
+        return amount_paid;
     }
+
+    public void setAmountReceived(String amountReceived) {
+        this.amount_paid = amountReceived;
+    }
+
     public String getTransactionType() {
-        return transactionType;
+        return transaction_type;
     }
 
     public void setTransactionType(String transactionType) {
-        this.transactionType = transactionType;
+        this.transaction_type = transactionType;
     }
+
     public String getProfitOrLoss() {
-        return profitOrLoss;
+        return profit_or_loss;
     }
 
     public void setProfitOrLoss(String profitOrLoss) {
-        this.profitOrLoss = profitOrLoss;
-    }
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionId='" + transactionID + '\'' +
-                ", userId='" + userId + '\'' +
-                ", Units ='" + units + '\'' +
-                ", Amount Paid=" + amountPaid +
-                ", Amount received =" + amountReceived +
-                ",Date of Purchase =" + dateOfPurchase +
-                ", Date of Selling =" + dateOfSell +
-                ", Transaction type =" + transactionType +
-                ", stock ID =" + stockId +
-                '}';
-    }
-
-    public void setProfitOrLoss(double profitOrLoss2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setProfitOrLoss'");
+        this.profit_or_loss = profitOrLoss;
     }
 }

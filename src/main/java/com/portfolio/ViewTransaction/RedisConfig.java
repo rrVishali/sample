@@ -1,26 +1,27 @@
-package com.portfolio.ViewTransaction;
+// package com.portfolio.ViewTransaction;
 
-// 
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
+// import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+// import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+// import org.springframework.data.redis.core.RedisTemplate;
 
+// @Configuration
+// public class RedisConfig {
 
-import com.portfolio.ViewTransaction.entity.Transaction;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericToStringSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+//     @Bean
+//     JedisConnectionFactory jedisConnectionFactory() {
+//         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+//         redisStandaloneConfiguration.setHostName("redis-15370.c283.us-east-1-4.ec2.cloud.redislabs.com");
+//         redisStandaloneConfiguration.setPort(15370);
+//         redisStandaloneConfiguration.setPassword("ESbiRUrdtRMRRFd8uaYk2J2JFkpngb0k");
+//         return new JedisConnectionFactory(redisStandaloneConfiguration);
+//     }
 
-@Configuration
-public class RedisConfig {
-
-    // 
-    @Bean
-    public RedisTemplate<String, Transaction> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, Transaction> template = new RedisTemplate<>();
-        template.setConnectionFactory(redisConnectionFactory);
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new StringRedisSerializer()); // Serializer for values
-        return template;
-    }
-}
+//     @Bean
+//     public RedisTemplate<String, Object> redisTemplate() {
+//         RedisTemplate<String, Object> template = new RedisTemplate<>();
+//         template.setConnectionFactory(jedisConnectionFactory());
+//         return template;
+//     }
+// }
