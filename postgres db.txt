@@ -1,5 +1,5 @@
 Using PostgreSQL as your database server offers several benefits:
-
+ I have used postgres db
 Robust and Reliable: PostgreSQL is known for its reliability, data integrity, and robustness. It's ACID-compliant (Atomicity, Consistency, Isolation, Durability), ensuring data consistency even in the event of system failures.
 Advanced Features: PostgreSQL offers a wide range of advanced features such as support for complex queries, indexes, stored procedures, triggers, and JSONB data type for handling semi-structured data.
 Open Source and Community Support: PostgreSQL is an open-source project with a large and active community. This means you have access to a wealth of resources, including documentation, forums, and user groups for support and troubleshooting.
